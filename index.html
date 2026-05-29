@@ -249,6 +249,169 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
 @media(max-width:1024px){.formations-grid{grid-template-columns:1fr 1fr}.diff-grid{grid-template-columns:1fr}}
 @media(max-width:900px){body{display:block}.sidebar{transform:translateX(-100%);transition:transform 0.3s}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.ham{display:block}.apropos-grid,.contact-grid,.extras-grid,.galerie-grid{grid-template-columns:1fr;gap:2rem}.galerie-grid{grid-template-rows:auto}.gitem.tall{grid-row:span 1}.testi-grid,.blog-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.formations-grid{grid-template-columns:1fr}.hero h1{font-size:2.4rem}}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes floatNote{0%,100%{transform:translateY(0) rotate(-5deg) scale(1)}50%{transform:translateY(-22px) rotate(5deg) scale(1.1)}}
+@keyframes countUp{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+.animate-fadeup{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.animate-fadeup.visible{opacity:1;transform:translateY(0)}
+.animate-left{opacity:0;transform:translateX(-30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.animate-left.visible{opacity:1;transform:translateX(0)}
+.animate-right{opacity:0;transform:translateX(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.animate-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}.delay-3{transition-delay:0.3s}.delay-4{transition-delay:0.4s}
+
+/* floating notes */
+.floating-notes{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.fnote{position:absolute;font-size:1.8rem;opacity:0.07;animation:floatNote ease-in-out infinite;color:var(--gold)}
+.fnote:nth-child(1){top:10%;left:8%;animation-duration:5s;animation-delay:0s}
+.fnote:nth-child(2){top:30%;right:6%;animation-duration:7s;animation-delay:1s;font-size:2.4rem}
+.fnote:nth-child(3){bottom:20%;left:15%;animation-duration:6s;animation-delay:2s;font-size:1.4rem}
+.fnote:nth-child(4){top:60%;right:12%;animation-duration:8s;animation-delay:0.5s;font-size:1.2rem}
+.fnote:nth-child(5){bottom:35%;left:45%;animation-duration:5.5s;animation-delay:3s}
+
+/* shimmer gold text */
+.shimmer-text{background:linear-gradient(90deg,var(--gold-dark) 0%,var(--gold-light) 50%,var(--gold-dark) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+
+/* stats counter */
+.stats-section{background:var(--dark2);padding:4rem 6%}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:980px;margin:0 auto}
+.stat-box{text-align:center;padding:1.8rem 1rem;border:1px solid rgba(201,168,76,0.15);border-radius:14px;background:rgba(255,255,255,0.03);transition:all 0.3s}
+.stat-box:hover{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.3);transform:translateY(-4px)}
+.stat-number{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold-light);display:block;line-height:1.1}
+.stat-label{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.12em;text-transform:uppercase;margin-top:0.4rem;display:block}
+
+/* DEFI VOCAL */
+.defi{background:linear-gradient(135deg,#0D0B0F 0%,#1C1714 100%);padding:6rem 6%;position:relative;overflow:hidden}
+.defi .section-label{color:var(--gold)}
+.defi .section-title{color:var(--white)}
+.defi-intro{color:rgba(255,255,255,0.55);font-size:0.95rem;max-width:560px;margin-bottom:3rem}
+.defi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;max-width:980px;margin:0 auto}
+
+.defi-card{border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;transition:all 0.3s}
+.defi-card:hover{transform:translateY(-6px)}
+
+.defi-timide{background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.12)}
+.defi-timide:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25)}
+
+.defi-audacieux{background:rgba(201,168,76,0.08);border:1.5px solid rgba(201,168,76,0.3)}
+.defi-audacieux:hover{background:rgba(201,168,76,0.13);border-color:var(--gold)}
+
+.defi-emoji{font-size:2.8rem;margin-bottom:1rem;display:block}
+.defi-tag{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.28rem 0.8rem;border-radius:2rem;margin-bottom:1rem}
+.defi-timide .defi-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6)}
+.defi-audacieux .defi-tag{background:rgba(201,168,76,0.2);color:var(--gold-light)}
+
+.defi-card h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.5rem}
+.defi-timide h3{color:var(--white)}
+.defi-audacieux h3{color:var(--gold-light)}
+
+.defi-card .sub{font-size:0.82rem;margin-bottom:1.4rem;line-height:1.7}
+.defi-timide .sub{color:rgba(255,255,255,0.45)}
+.defi-audacieux .sub{color:rgba(255,255,255,0.55)}
+
+.defi-steps{list-style:none;margin-bottom:1.8rem}
+.defi-steps li{font-size:0.84rem;color:rgba(255,255,255,0.55);padding:0.45rem 0;display:flex;align-items:flex-start;gap:0.7rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.defi-steps li:last-child{border-bottom:none}
+.defi-audacieux .defi-steps li{border-bottom-color:rgba(201,168,76,0.1)}
+.step-num{background:rgba(201,168,76,0.15);color:var(--gold-light);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;flex-shrink:0;margin-top:0.1rem}
+
+.btn-defi-ghost{display:block;text-align:center;border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);padding:0.85rem;border-radius:2rem;text-decoration:none;font-size:0.85rem;font-weight:500;transition:all 0.2s}
+.btn-defi-ghost:hover{border-color:rgba(255,255,255,0.5);color:white;background:rgba(255,255,255,0.05)}
+
+.btn-defi-wa{display:block;text-align:center;background:linear-gradient(135deg,#25D366,#1da851);color:white;padding:0.85rem;border-radius:2rem;text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s;box-shadow:0 5px 18px rgba(37,211,102,0.3);animation:pulse 2.5s ease-in-out infinite}
+.btn-defi-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,0.4)}
+
+.defi-bienveillance{margin-top:2.5rem;text-align:center;padding:1.4rem 2rem;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.18);border-radius:12px}
+.defi-bienveillance p{color:rgba(255,255,255,0.5);font-size:0.88rem;font-style:italic}
+.defi-bienveillance strong{color:var(--gold-light)}
+
+@media(max-width:768px){.defi-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+/* ── TYPEWRITER ── */
+.typewriter{overflow:hidden;border-right:2px solid var(--gold);white-space:nowrap;animation:typing 3s steps(40,end) forwards,blink 0.75s step-end infinite}
+.typewriter.done{border-right:none}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{from,to{border-color:transparent}50%{border-color:var(--gold)}}
+
+/* ── QUIZ DÉFI 1 ── */
+.quiz-wrap{width:100%}
+.quiz-step{display:none}
+.quiz-step.active{display:block}
+.quiz-progress{display:flex;gap:0.4rem;margin-bottom:1.8rem}
+.quiz-prog-dot{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,0.1);transition:background 0.4s}
+.quiz-prog-dot.done{background:var(--gold)}
+.quiz-prog-dot.active{background:rgba(201,168,76,0.5)}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:1.2rem;line-height:1.4}
+.quiz-options{display:flex;flex-direction:column;gap:0.7rem}
+.quiz-opt{background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.12);border-radius:12px;padding:0.9rem 1.2rem;color:rgba(255,255,255,0.75);font-size:0.87rem;cursor:pointer;transition:all 0.2s;text-align:left;display:flex;align-items:center;gap:0.7rem}
+.quiz-opt:hover{background:rgba(201,168,76,0.1);border-color:rgba(201,168,76,0.4);color:var(--white);transform:translateX(4px)}
+.quiz-opt.selected{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--white)}
+.quiz-opt-emoji{font-size:1.2rem;flex-shrink:0}
+
+/* result card */
+.quiz-result{display:none;animation:fadeInUp 0.5s ease forwards}
+.quiz-result.active{display:block}
+.result-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--dark);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:2rem;margin-bottom:1rem}
+.result-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--white);margin-bottom:0.7rem}
+.result-msg{color:rgba(255,255,255,0.6);font-size:0.88rem;margin-bottom:0.8rem;line-height:1.75}
+.result-motivation{background:rgba(201,168,76,0.1);border-left:3px solid var(--gold);padding:0.8rem 1rem;border-radius:0 8px 8px 0;font-style:italic;color:var(--gold-light);font-size:0.85rem;margin-bottom:1.2rem}
+.result-tips{list-style:none;margin-bottom:1.4rem}
+.result-tips li{font-size:0.82rem;color:rgba(255,255,255,0.55);padding:0.3rem 0;display:flex;align-items:center;gap:0.5rem}
+.result-tips li::before{content:'✦';color:var(--gold);font-size:0.6rem}
+.btn-result{display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);padding:0.85rem;border-radius:2rem;text-decoration:none;font-size:0.85rem;font-weight:700;transition:all 0.2s;margin-bottom:0.8rem}
+.btn-result:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.35)}
+.quiz-restart{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);font-size:0.75rem;padding:0.4rem 1rem;border-radius:2rem;cursor:pointer;transition:all 0.2s;display:block;margin:0 auto}
+.quiz-restart:hover{border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.7)}
+
+/* ── DÉFI 2 ── */
+.defi2-options{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:1.8rem}
+.defi2-opt{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.8rem}
+.defi2-opt-icon{font-size:1.5rem;flex-shrink:0}
+.defi2-opt strong{display:block;font-size:0.85rem;color:var(--gold-light);margin-bottom:0.2rem}
+.defi2-opt p{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.6;margin:0}
+
+/* ── MOBILE FIXES ── */
+@media(max-width:768px){
+  .section{padding:3.5rem 5%}
+  .apropos-grid{gap:2rem}
+  .img-accent{display:none}
+  .apropos-quote{font-size:1rem;padding:0.9rem 1rem}
+  .ap-stats{gap:0.8rem}
+  .ap-stat strong{font-size:1.2rem}
+  .formations-grid{gap:1rem}
+  .fcard{border-radius:12px}
+  .fimg{height:160px}
+  .extras-grid{gap:1rem}
+  .extra-card{padding:1.3rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:0.8rem}
+  .stat-box{padding:1.2rem 0.8rem}
+  .stat-number{font-size:2rem}
+  .defi-grid{gap:1rem}
+  .defi-card{padding:1.8rem 1.4rem}
+  .testi-grid{gap:1rem}
+  .tcard{padding:1.4rem}
+  .blog-grid{gap:1rem}
+  .bcard{border-radius:12px}
+  .contact-grid{gap:2rem}
+  .form-wrap{padding:1.8rem}
+  .diff-grid{gap:1rem}
+  .diff-card{padding:1.5rem}
+  .cta-band{padding:3rem 5%}
+  .cta-btns{flex-direction:column;align-items:center}
+  .hero-content{padding-bottom:2rem}
+  .hero h1{font-size:2.3rem}
+  .hero p{font-size:0.92rem}
+  .sidebar-brand-text .name{font-size:0.85rem}
+}
+
 </style>
 </head>
 <body>
@@ -291,10 +454,11 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
     <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?w=1400&q=85&fit=crop&auto=format" alt="Piano" onerror="this.style.display='none'">
   </div>
   <div class="hero-overlay"></div>
+  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span></div>
   <div class="hero-content">
     <div class="hero-location">🎵 Piano &amp; Voix Dakar</div>
     <h1>Révèle ta voix,<br><em>libère ton art.</em></h1>
-    <p class="hero-callig">— Piano, Chant &amp; Art Oratoire à Dakar —</p>
+    <p class="hero-callig" id="typewriter-text">— Piano, Chant &amp; Art Oratoire à Dakar —</p>
     <div class="hero-pills">
       <span class="hero-pill">🎹 Piano</span>
       <span class="hero-pill">🎤 Chant</span>
@@ -314,7 +478,7 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
 <!-- À PROPOS -->
 <section class="section apropos" id="apropos">
   <div class="section-inner">
-    <div class="apropos-grid">
+    <div class="apropos-grid animate-fadeup">
       <div class="img-wrap">
         <div class="img-main">
           <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=700&q=85&fit=crop&auto=format" alt="Mains sur le piano" onerror="this.style.display='none'">
@@ -355,7 +519,6 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
       <div class="fcard">
         <div class="fimg piano-bg">
           <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&q=85&fit=crop&h=300&auto=format" alt="Cours de piano Dakar" onerror="this.style.display='none'">
-          <div class="fimg-icon">🎹</div>
           <div class="fimg-overlay"></div>
           <span class="fcat">Piano</span>
         </div>
@@ -369,7 +532,6 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
       <div class="fcard">
         <div class="fimg chant-bg">
           <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=85&fit=crop&h=300&auto=format" alt="Cours de chant Dakar" onerror="this.style.display='none'">
-          <div class="fimg-icon">🎤</div>
           <div class="fimg-overlay"></div>
           <span class="fcat">Chant</span>
         </div>
@@ -383,7 +545,6 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
       <div class="fcard">
         <div class="fimg ora-bg">
           <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=85&fit=crop&h=300&auto=format" alt="Art oratoire Dakar" onerror="this.style.display='none'">
-          <div class="fimg-icon">🎙️</div>
           <div class="fimg-overlay"></div>
           <span class="fcat">Art Oratoire</span>
         </div>
@@ -411,42 +572,6 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
           <p>Vous êtes plusieurs à vouloir apprendre ? Une réduction est possible — contactez-nous pour un tarif personnalisé.</p>
           <a href="#contact" class="btn-eg gold">Demander un tarif groupe →</a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALERIE -->
-<section class="galerie" id="galerie">
-  <div class="galerie-inner">
-    <span class="section-label">L'univers Piano &amp; Voix</span>
-    <div class="divider"></div>
-    <h2 class="section-title">La musique prend vie<br>à Dakar</h2>
-    <div class="galerie-grid">
-      <div class="gitem tall">
-        <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?w=800&q=85&fit=crop&auto=format" alt="Piano" onerror="this.style.display='none'">
-        <div class="gitem-icon">🎹</div>
-        <div class="goverlay"></div><div class="glabel">Piano</div>
-      </div>
-      <div class="gitem">
-        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=500&q=80&fit=crop&auto=format" alt="Chant" onerror="this.style.display='none'">
-        <div class="gitem-icon">🎤</div>
-        <div class="goverlay"></div><div class="glabel">Chant</div>
-      </div>
-      <div class="gitem">
-        <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=500&q=80&fit=crop&auto=format" alt="Cours" onerror="this.style.display='none'">
-        <div class="gitem-icon">🎵</div>
-        <div class="goverlay"></div><div class="glabel">Cours</div>
-      </div>
-      <div class="gitem">
-        <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=500&q=80&fit=crop&auto=format" alt="Scène" onerror="this.style.display='none'">
-        <div class="gitem-icon">🎤</div>
-        <div class="goverlay"></div><div class="glabel">Scène</div>
-      </div>
-      <div class="gitem">
-        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=500&q=80&fit=crop&auto=format" alt="Art Oratoire" onerror="this.style.display='none'">
-        <div class="gitem-icon">🎙️</div>
-        <div class="goverlay"></div><div class="glabel">Art Oratoire</div>
       </div>
     </div>
   </div>
@@ -488,6 +613,173 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
           <p>Enfants dès 5 ans, adultes, seniors, artistes professionnels — aucune expérience préalable n'est requise pour commencer.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-box animate-fadeup delay-1">
+      <span class="stat-number" data-target="10">0</span><span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold-light)">+</span>
+      <span class="stat-label">Années d'expérience</span>
+    </div>
+    <div class="stat-box animate-fadeup delay-2">
+      <span class="stat-number" data-target="3">0</span>
+      <span class="stat-label">Disciplines</span>
+    </div>
+    <div class="stat-box animate-fadeup delay-3">
+      <span class="stat-number" data-target="100">0</span><span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold-light)">%</span>
+      <span class="stat-label">Cours personnalisés</span>
+    </div>
+    <div class="stat-box animate-fadeup delay-4">
+      <span class="stat-number" data-target="5">0</span><span style="font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--gold-light)">★</span>
+      <span class="stat-label">Satisfaction élèves</span>
+    </div>
+  </div>
+</section>
+
+<!-- DÉFI VOCAL -->
+<section class="section defi" id="defi">
+  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span></div>
+  <div class="section-inner" style="position:relative;z-index:1">
+    <span class="section-label">✦ Votre premier pas</span>
+    <div class="divider"></div>
+    <h2 class="section-title"><span class="shimmer-text">Relevez le défi !</span></h2>
+    <p class="defi-intro">Découvrez votre potentiel musical en quelques clics. Choisissez le défi qui vous correspond — pas de jugement ici, venez comme vous êtes !</p>
+    <div class="defi-grid">
+
+      <!-- DÉFI 1 : TIMIDES -->
+      <div class="defi-card defi-timide animate-left">
+        <span class="defi-emoji">🤫</span>
+        <span class="defi-tag">Pour les timides</span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.5rem">Le Défi des Timides 🎤</h3>
+        <p style="font-size:0.83rem;color:rgba(255,255,255,0.45);margin-bottom:0.3rem">Découvre ton profil musical et artistique en 3 clics simples.</p>
+        <p style="font-size:0.78rem;color:var(--gold-light);font-style:italic;margin-bottom:1.3rem">✨ À la fin, tu reçois un profil personnalisé et nos recommandations.</p>
+        <div class="quiz-wrap" id="quiz">
+
+          <!-- ÉTAPE 1 -->
+          <div class="quiz-step active" id="step1">
+            <div class="quiz-progress">
+              <div class="quiz-prog-dot active" id="dot1"></div>
+              <div class="quiz-prog-dot" id="dot2"></div>
+              <div class="quiz-prog-dot" id="dot3"></div>
+            </div>
+            <p class="quiz-q">🎯 Quel est ton rapport à la musique ?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="nextStep(1,0)"><span class="quiz-opt-emoji">🎤</span>J'aime chanter mais je n'ose pas vraiment</button>
+              <button class="quiz-opt" onclick="nextStep(1,1)"><span class="quiz-opt-emoji">🎹</span>J'aime le piano mais je débute</button>
+              <button class="quiz-opt" onclick="nextStep(1,2)"><span class="quiz-opt-emoji">🎧</span>J'écoute beaucoup de musique mais je n'ai jamais essayé</button>
+            </div>
+          </div>
+
+          <!-- ÉTAPE 2 -->
+          <div class="quiz-step" id="step2">
+            <div class="quiz-progress">
+              <div class="quiz-prog-dot done" id="dot1b"></div>
+              <div class="quiz-prog-dot active" id="dot2b"></div>
+              <div class="quiz-prog-dot" id="dot3b"></div>
+            </div>
+            <p class="quiz-q">💬 Quand tu dois t'exprimer (chanter ou parler)…</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="nextStep(2,0)"><span class="quiz-opt-emoji">😳</span>Je suis très réservé(e) / timide</button>
+              <button class="quiz-opt" onclick="nextStep(2,1)"><span class="quiz-opt-emoji">🙂</span>Je suis un peu à l'aise mais je doute parfois</button>
+              <button class="quiz-opt" onclick="nextStep(2,2)"><span class="quiz-opt-emoji">😎</span>Je suis globalement à l'aise</button>
+            </div>
+          </div>
+
+          <!-- ÉTAPE 3 -->
+          <div class="quiz-step" id="step3">
+            <div class="quiz-progress">
+              <div class="quiz-prog-dot done"></div>
+              <div class="quiz-prog-dot done"></div>
+              <div class="quiz-prog-dot active"></div>
+            </div>
+            <p class="quiz-q">🎯 Quel est ton objectif principal ?</p>
+            <div class="quiz-options">
+              <button class="quiz-opt" onclick="showResult()"><span class="quiz-opt-emoji">🎤</span>Mieux chanter et gagner en confiance</button>
+              <button class="quiz-opt" onclick="showResult()"><span class="quiz-opt-emoji">🎹</span>Apprendre ou progresser au piano</button>
+              <button class="quiz-opt" onclick="showResult()"><span class="quiz-opt-emoji">🎙️</span>M'exprimer avec plus d'assurance en public</button>
+            </div>
+          </div>
+
+          <!-- RÉSULTAT 1 -->
+          <div class="quiz-result" id="result1">
+            <div class="result-badge">🌱 Votre profil</div>
+            <div class="result-title">Le Débutant en découverte</div>
+            <p class="result-msg">Tu débutes ou tu n'as pas encore osé te lancer pleinement, mais tu as un vrai potentiel à explorer.</p>
+            <div class="result-motivation">👉 "Tout artiste commence par une première étape, même hésitante."</div>
+            <ul class="result-tips">
+              <li>Confiance en toi</li>
+              <li>Premiers exercices simples</li>
+              <li>Découverte de ta voix ou du piano</li>
+            </ul>
+            <a href="#contact" class="btn-result">👉 Commencer un accompagnement débutant</a>
+            <button class="quiz-restart" onclick="restartQuiz()">↺ Recommencer le quiz</button>
+          </div>
+
+          <!-- RÉSULTAT 2 -->
+          <div class="quiz-result" id="result2">
+            <div class="result-badge">🎤 Votre profil</div>
+            <div class="result-title">L'Artiste en construction</div>
+            <p class="result-msg">Tu as déjà une sensibilité artistique et une envie claire de progresser.</p>
+            <div class="result-motivation">👉 "Ton potentiel est là, il suffit maintenant de le structurer."</div>
+            <ul class="result-tips">
+              <li>Technique vocale ou musicale</li>
+              <li>Régularité et discipline</li>
+              <li>Expression et confiance</li>
+            </ul>
+            <a href="#contact" class="btn-result">👉 Développer ma voix</a>
+            <button class="quiz-restart" onclick="restartQuiz()">↺ Recommencer le quiz</button>
+          </div>
+
+          <!-- RÉSULTAT 3 -->
+          <div class="quiz-result" id="result3">
+            <div class="result-badge">🎹 Votre profil</div>
+            <div class="result-title">Le Passionné en progression</div>
+            <p class="result-msg">Tu es déjà engagé(e) dans la musique et prêt(e) à passer un vrai cap.</p>
+            <div class="result-motivation">👉 "La progression vient avec la bonne méthode et la pratique guidée."</div>
+            <ul class="result-tips">
+              <li>Technique piano ou chant avancée</li>
+              <li>Rythme et coordination</li>
+              <li>Interprétation et expression scénique</li>
+            </ul>
+            <a href="#contact" class="btn-result">👉 Réserver un cours personnalisé</a>
+            <button class="quiz-restart" onclick="restartQuiz()">↺ Recommencer le quiz</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DÉFI 2 : AUDACIEUX -->
+      <div class="defi-card defi-audacieux animate-right">
+        <span class="defi-emoji">🎙️</span>
+        <span class="defi-tag">Pour les audacieux</span>
+        <h3>Le Défi Vocal</h3>
+        <p class="sub">Osez le diagnostic en 30 secondes ! Envoyez-nous un vocal WhatsApp et recevez un retour personnalisé de notre professeur sous 24h.</p>
+        <div class="defi2-options">
+          <div class="defi2-opt">
+            <span class="defi2-opt-icon">🎵</span>
+            <div>
+              <strong>Option A — La minute musicale</strong>
+              <p>Chantez le refrain de votre chanson préférée. Laissez votre voix parler naturellement !</p>
+            </div>
+          </div>
+          <div class="defi2-opt">
+            <span class="defi2-opt-icon">📖</span>
+            <div>
+              <strong>Option B — Le texte expressif</strong>
+              <p>Lisez ce texte à voix haute avec émotion : <em>"La musique est la langue que tout le monde comprend, même avant d'avoir appris à parler..."</em></p>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/221773976472?text=Bonjour%20Piano%20%26%20Voix%20Dakar%20!%20Je%20rel%C3%A8ve%20le%20D%C3%A9fi%20Vocal%20%F0%9F%8E%99%EF%B8%8F%20Voici%20mon%20message%20vocal%20!" target="_blank" class="btn-defi-wa">🎙️ Envoyer mon vocal sur WhatsApp</a>
+      </div>
+
+    </div>
+    <div class="defi-bienveillance">
+      <p>💛 <strong>Pas de jugement ici.</strong> Venez comme vous êtes — notre mission est de révéler la voix qui est en vous.</p>
     </div>
   </div>
 </section>
@@ -585,6 +877,7 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
         <p>Piano, chant ou art oratoire — on vous répond rapidement pour organiser votre première séance à Dakar.</p>
         <div class="cdetail"><div class="cicon">📞</div><div><strong>WhatsApp disponible</strong><a href="https://wa.me/221773976472">+221 77 397 64 72</a></div></div>
         <div class="cdetail"><div class="cicon">📍</div><div><strong>Localisation</strong><span>Dakar, Sénégal</span></div></div>
+        <div class="cdetail"><div class="cicon">✉️</div><div><strong>Email</strong><a href="mailto:pianoetvoixdakar@gmail.com">pianoetvoixdakar@gmail.com</a></div></div>
         <div class="cdetail"><div class="cicon">🏠</div><div><strong>Format des cours</strong><span>À domicile &amp; en salle</span></div></div>
         <a href="https://wa.me/221773976472?text=Bonjour%20Piano%20%26%20Voix%20Dakar%2C%20je%20souhaite%20r%C3%A9server%20une%20s%C3%A9ance%20!" target="_blank" class="wa-btn">💬 &nbsp;Écrire directement sur WhatsApp →</a>
       </div>
@@ -604,7 +897,7 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
           </select>
           <select name="format"><option value="" disabled selected>Format souhaité</option>
             <option>Cours individuel</option><option>Cours en groupe</option>
-            <option>Les deux m'intéressent</option>
+            
           </select>
           <textarea name="message" placeholder="Votre message ou vos questions... (facultatif)"></textarea>
           <button type="submit">Envoyer ma demande →</button>
@@ -640,5 +933,74 @@ function handleSubmit(e){
   setTimeout(()=>{btn.textContent='Envoyer ma demande →';btn.style.background='';btn.disabled=false;e.target.reset();},4000);
 }
 </script>
+
+<script>
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.animate-fadeup, .animate-left, .animate-right').forEach(el => {
+  observer.observe(el);
+});
+
+// Counter animation
+function animateCounter(el, target, duration) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target; clearInterval(timer); return; }
+    el.textContent = Math.floor(start);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = entry.target.querySelectorAll('[data-target]');
+      nums.forEach(num => {
+        animateCounter(num, parseInt(num.dataset.target), 1500);
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.stats-grid').forEach(el => counterObserver.observe(el));
+</script>
+
+
+<script>
+// Quiz logic
+var answers = [];
+function nextStep(step, val) {
+  answers[step-1] = val;
+  document.getElementById('step'+step).classList.remove('active');
+  var next = step+1;
+  if(next <= 3) document.getElementById('step'+next).classList.add('active');
+}
+function showResult() {
+  document.getElementById('step3').classList.remove('active');
+  // Score: Q1: 🎤=1,🎹=1,🎧=0 | Q2: 😳=0,🙂=1,😎=2
+  var score = 0;
+  if(answers[0] === 0 || answers[0] === 1) score += 1;
+  if(answers[1] === 1) score += 1;
+  if(answers[1] === 2) score += 2;
+  var profile = score <= 1 ? 1 : score <= 2 ? 2 : 3;
+  document.getElementById('result'+profile).classList.add('active');
+}
+function restartQuiz() {
+  answers = [];
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.quiz-result').forEach(r => r.classList.remove('active'));
+  document.getElementById('step1').classList.add('active');
+}
+</script>
+
 </body>
 </html>
