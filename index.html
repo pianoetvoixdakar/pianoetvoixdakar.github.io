@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GS6DR93942"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GS6DR93942');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Piano & Voix Dakar – Piano · Chant · Art Oratoire</title>
@@ -464,6 +472,121 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
   .sidebar-brand-text .name{font-size:0.85rem}
 }
 
+
+/* ══ ANIMATIONS GLOBALES ══ */
+
+/* Glow doré sur les titres de section */
+.section-title{transition:all 0.3s}
+.section-inner:hover .section-title{text-shadow:0 0 30px rgba(201,168,76,0.15)}
+
+/* Barre de progression animée */
+.divider{animation:expandBar 1.2s ease forwards;transform-origin:left;transform:scaleX(0)}
+@keyframes expandBar{to{transform:scaleX(1)}}
+
+/* Notes musicales hero - plus nombreuses et variées */
+.fnote:nth-child(6){top:45%;left:25%;animation-duration:6.5s;animation-delay:1.5s;font-size:1rem;opacity:0.08}
+.fnote:nth-child(7){top:75%;right:8%;animation-duration:7.5s;animation-delay:2.5s;font-size:1.6rem;opacity:0.06}
+.fnote:nth-child(8){top:20%;left:35%;animation-duration:5.5s;animation-delay:3.5s;font-size:1.1rem;opacity:0.07}
+
+/* Sidebar liens - slide indicator */
+nav ul a{position:relative;overflow:hidden}
+nav ul a::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:0;background:var(--gold);border-radius:0 2px 2px 0;transition:height 0.25s ease}
+nav ul a:hover::before,nav ul a.active::before{height:60%}
+
+/* Hero - entrée animée */
+.hero-location{animation:fadeInDown 0.7s ease 0.2s both}
+.hero h1{animation:fadeInUp 0.8s ease 0.4s both}
+.hero-callig{animation:fadeInUp 0.8s ease 0.6s both}
+.hero-pills{animation:fadeInUp 0.8s ease 0.7s both}
+.hero p{animation:fadeInUp 0.8s ease 0.8s both}
+.hero-cta{animation:fadeInUp 0.8s ease 1s both}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+
+/* Boutons - effet brillance au survol */
+.btn-gold,.btn-sidebar,.btn-result{position:relative;overflow:hidden}
+.btn-gold::after,.btn-sidebar::after,.btn-result::after{
+  content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;
+  background:rgba(255,255,255,0.25);transform:skewX(-20deg);
+  transition:left 0.5s ease;pointer-events:none
+}
+.btn-gold:hover::after,.btn-sidebar:hover::after,.btn-result:hover::after{left:120%}
+
+/* Cards - effet lumière au survol */
+.fcard,.tcard,.bcard,.diff-card{position:relative;overflow:hidden}
+.fcard::before,.tcard::before,.bcard::before{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.06),transparent);
+  transition:left 0.6s ease;z-index:0;pointer-events:none
+}
+.fcard:hover::before,.tcard:hover::before,.bcard:hover::before{left:150%}
+
+/* Stat boxes - glow au survol */
+.stat-box{position:relative}
+.stat-box::after{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  box-shadow:0 0 0 0 rgba(201,168,76,0.3);
+  transition:box-shadow 0.3s ease;pointer-events:none
+}
+.stat-box:hover::after{box-shadow:0 0 20px 4px rgba(201,168,76,0.15)}
+
+/* Section labels - apparition avec icône */
+.section-label{display:inline-flex;align-items:center;gap:0.4rem}
+
+/* Paragraphes - fade in progressif */
+.apropos-text p,.ci-info p,.defi-intro{
+  animation:none;opacity:0;transform:translateY(10px);
+  transition:opacity 0.6s ease,transform 0.6s ease
+}
+.apropos-text p.visible,.ci-info p.visible,.defi-intro.visible{opacity:1;transform:translateY(0)}
+
+/* Quiz options - rebond au clic */
+.quiz-opt:active{transform:scale(0.97) translateX(4px)}
+
+/* Défi cards - bordure animée */
+.defi-audacieux{background-size:200% 200%;animation:borderPulse 3s ease infinite}
+@keyframes borderPulse{0%,100%{border-color:rgba(201,168,76,0.3)}50%{border-color:rgba(201,168,76,0.6)}}
+
+/* WhatsApp button - pulse plus visible */
+.btn-defi-wa,.wa-btn{animation:waPulse 2s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 5px 18px rgba(37,211,102,0.3)}50%{box-shadow:0 8px 28px rgba(37,211,102,0.55),0 0 0 6px rgba(37,211,102,0.08)}}
+
+/* Témoignages - étoiles scintillantes */
+.tstars{animation:starShine 2s ease-in-out infinite}
+@keyframes starShine{0%,100%{opacity:1;text-shadow:none}50%{opacity:0.8;text-shadow:0 0 8px rgba(201,168,76,0.5)}}
+
+/* Images blog/formations - overlay doré au survol */
+.fimg::after,.bthumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0) 0%,rgba(201,168,76,0.12) 100%);
+  opacity:0;transition:opacity 0.4s ease;pointer-events:none
+}
+.fcard:hover .fimg::after,.bcard:hover .bthumb::after{opacity:1}
+
+/* Logo sidebar - rotation légère au survol */
+.sidebar-brand img{transition:transform 0.4s ease}
+.sidebar-brand:hover img{transform:rotate(-3deg) scale(1.05)}
+
+/* Scroll indicator ligne */
+.section-divider,.divider{position:relative}
+
+/* CTA band - fond animé */
+.cta-band{background-size:200% 200%;animation:ctaBg 6s ease infinite}
+@keyframes ctaBg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* Contact details - slide au survol */
+.cdetail{transition:all 0.2s ease}
+.cdetail:hover{transform:translateX(5px);background:rgba(201,168,76,0.04);border-radius:8px;padding-left:0.5rem}
+
+/* Résultats quiz - bounce d'entrée */
+.quiz-result.active{animation:resultBounce 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards}
+@keyframes resultBounce{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+
+/* Mobile - réduire animations lourdes */
+@media(max-width:768px){
+  .hero h1{animation-duration:0.6s}
+  .fcard::before,.tcard::before,.bcard::before{display:none}
+}
+
 </style>
 </head>
 <body>
@@ -506,7 +629,7 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
     <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?w=1400&q=85&fit=crop&auto=format" alt="Piano" onerror="this.style.display='none'">
   </div>
   <div class="hero-overlay"></div>
-  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span></div>
+  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span><span class="fnote">𝄞</span><span class="fnote">♪</span><span class="fnote">♩</span></div>
   <div class="hero-content">
     <div class="hero-location">🎵 Piano &amp; Voix Dakar</div>
     <h1>Révèle ta voix,<br><em>libère ton art.</em></h1>
@@ -694,7 +817,7 @@ footer p{color:rgba(255,255,255,0.2);font-size:0.73rem}
 
 <!-- DÉFI VOCAL -->
 <section class="section defi" id="defi">
-  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span></div>
+  <div class="floating-notes"><span class="fnote">♪</span><span class="fnote">♫</span><span class="fnote">♩</span><span class="fnote">🎵</span><span class="fnote">♬</span><span class="fnote">𝄞</span><span class="fnote">♪</span><span class="fnote">♩</span></div>
   <div class="section-inner" style="position:relative;z-index:1">
     <span class="section-label">✦ Votre premier pas</span>
     <div class="divider"></div>
@@ -1049,6 +1172,68 @@ function restartQuiz() {
   document.querySelectorAll('.quiz-result').forEach(r => r.classList.remove('active'));
   document.getElementById('step1').classList.add('active');
 }
+</script>
+
+
+<script>
+// Animate paragraphs on scroll
+const paraObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 120);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.apropos-text p, .ci-info p, .defi-intro').forEach(el => {
+  paraObserver.observe(el);
+});
+
+// Staggered card animations
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.fcard, .tcard, .bcard, .diff-card, .stat-box, .extra-card');
+      cards.forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(24px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 100);
+      });
+      cardObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.formations-grid, .testi-grid, .blog-grid, .diff-grid, .stats-grid, .extras-grid').forEach(el => {
+  cardObserver.observe(el);
+});
+
+// Divider animation on scroll
+const dividerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'expandBar 1s ease forwards';
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.divider').forEach(el => dividerObserver.observe(el));
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 200) current = section.id;
+  });
+  document.querySelectorAll('.sidebar nav a').forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}, { passive: true });
 </script>
 
 </body>
